@@ -14,9 +14,7 @@ export function sidBufferToString(buf: Buffer): string {
 }
 
 export function sidStringToBuffer(sid: string): Buffer {
-  const [, revision, identifierAuthority, ...subAuthorities] = sid.split(
-    '-',
-  );
+  const [, revision, identifierAuthority, ...subAuthorities] = sid.split('-');
   const buf = Buffer.allocUnsafe(8 + 4 * subAuthorities.length);
   buf.writeUInt8(Number.parseInt(revision, 10), 0);
   buf.writeUInt8(subAuthorities.length, 1);
