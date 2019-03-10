@@ -1,5 +1,6 @@
 # sid
 
+[![Build Status](https://travis-ci.org/jstewmon/sid.svg?branch=master)](https://travis-ci.org/jstewmon/sid)
 [![Coverage Status](https://coveralls.io/repos/github/jstewmon/sid/badge.svg)](https://coveralls.io/github/jstewmon/sid)
 
 Convert Windows [security identifiers] between binary and string representations.
