@@ -1,0 +1,77 @@
+{
+  "name": "sid",
+  "version": "0.0.0",
+  "description": "Convert Security Identifiers between strings and buffers",
+  "keywords": [
+    "AD",
+    "Active Directory",
+    "SID",
+    "Security Identifier"
+  ],
+  "main": "dist/index.js",
+  "bin": {
+    "sid": "bin/sid"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jstewmon/sid.git"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "author": "jstewmon@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jstewmon/sid/issues"
+  },
+  "homepage": "https://github.com/jstewmon/sid#readme",
+  "dependencies": {},
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "all": true
+  },
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "rimraf dist/* && tsc -p tsconfig.json",
+    "tslint": "tslint '{src,test}/**/*.ts'",
+    "lint": "npm run tslint && npm run prettier -- --check",
+    "prettier": "prettier '**/*.{json,ts,yaml,md}'",
+    "format": "npm run tslint -- --fix && npm run prettier -- --write",
+    "test": "npm run lint && ava test"
+  },
+  "devDependencies": {
+    "@types/node": "^11.10.5",
+    "ava": "^1.3.1",
+    "np": "^4.0.2",
+    "nyc": "^13.3.0",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.13.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3333",
+    "@types/sinon": "^7.0.9",
+    "sinon": "^7.2.7"
+  }
+}
