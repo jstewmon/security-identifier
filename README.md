@@ -1,5 +1,7 @@
 # sid
 
+[![Coverage Status](https://coveralls.io/repos/github/jstewmon/sid/badge.svg)](https://coveralls.io/github/jstewmon/sid)
+
 Convert Windows [security identifiers] between binary and string representations.
 
 Table Of Contents:
