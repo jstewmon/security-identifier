@@ -6,3 +6,13 @@ node_js:
   - '8'
 after_success:
   - npm run coverage
+jobs:
+  include:
+    - stage: release
+      if: branch == master && !fork
+      node_js: lts/*
+      script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: npx semantic-release
