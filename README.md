@@ -1,7 +1,7 @@
 # security-identifier
 
 [![Build Status](https://travis-ci.org/jstewmon/security-identifier.svg?branch=master)](https://travis-ci.org/jstewmon/security-identifier)
-[![Coverage Status](https://coveralls.io/repos/github/jstewmon/security-identif/badge.svg)](https://coveralls.io/github/jstewmon/security-identifier)
+[![Coverage Status](https://coveralls.io/repos/github/jstewmon/security-identifier/badge.svg?branch=master)](https://coveralls.io/github/jstewmon/security-identifier?branch=master)
 
 Convert Windows [security identifiers] between binary and string representations.
 
