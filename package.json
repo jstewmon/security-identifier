@@ -1,5 +1,5 @@
 {
-  "name": "sid",
+  "name": "security-identifier",
   "version": "0.0.0",
   "description": "Convert Security Identifiers between strings and buffers",
   "keywords": [
@@ -17,16 +17,16 @@
   "bin": {
     "sid": "bin/sid"
   },
-  "repository": "github:jstewmon/sid",
+  "repository": "github:jstewmon/security-identifier",
   "engines": {
     "node": ">=8"
   },
   "author": "jstewmon@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jstewmon/sid/issues"
+    "url": "https://github.com/jstewmon/security-identifier/issues"
   },
-  "homepage": "https://github.com/jstewmon/sid#readme",
+  "homepage": "https://github.com/jstewmon/security-identifier#readme",
   "dependencies": {},
   "prettier": {
     "singleQuote": true,

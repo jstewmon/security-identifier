@@ -1,7 +1,7 @@
-# sid
+# security-identifier
 
-[![Build Status](https://travis-ci.org/jstewmon/sid.svg?branch=master)](https://travis-ci.org/jstewmon/sid)
-[![Coverage Status](https://coveralls.io/repos/github/jstewmon/sid/badge.svg)](https://coveralls.io/github/jstewmon/sid)
+[![Build Status](https://travis-ci.org/jstewmon/security-identifier.svg?branch=master)](https://travis-ci.org/jstewmon/security-identifier)
+[![Coverage Status](https://coveralls.io/repos/github/jstewmon/security-identif/badge.svg)](https://coveralls.io/github/jstewmon/security-identifier)
 
 Convert Windows [security identifiers] between binary and string representations.
 
@@ -15,7 +15,7 @@ Table Of Contents:
 ## Installation
 
 ```bash
-$ npm install sid
+$ npm install security-identifier
 ```
 
 ## Use Cases
@@ -31,7 +31,7 @@ $ npm install sid
 
   ```js
   const ldap = require('ldapjs');
-  const { sidStringToBuffer } = require('sid');
+  const { sidStringToBuffer } = require('security-identifier');
   const filter = new ldap.EqualityFilter({
     attribute: 'objectSID',
     value: sidStringToBuffer('S-1-5-32-544'),
@@ -47,7 +47,7 @@ Converts from [sid binary format] Buffer to [sid string].
 Example:
 
 ```js
-const { sidBufferToString } = require('sid');
+const { sidBufferToString } = require('security-identifier');
 sidBufferToString(Buffer.from('01020000000000052000000020020000', 'hex')); // ⇨ 'S-1-5-32-544'
 ```
 
@@ -58,14 +58,14 @@ Converts from [sid string format syntax] to [sid binary format].
 Example:
 
 ```js
-const { sidStringToBuffer } = require('sid');
+const { sidStringToBuffer } = require('security-identifier');
 sidStringToBuffer('S-1-5-32-544'); // ⇨ <Buffer 01 02 00 00 00 00 00 05 20 00 00 00 20 02 00 00>
 ```
 
 ## Command Line
 
-sid can be used from the command line to convert between string and binary (hex
-encoded) formats
+security-identifier includes an executable `sid`, which can be used from the
+command line to convert between string and binary (hex encoded) formats
 
 ```bash
 $ sid S-1-5-32-544
