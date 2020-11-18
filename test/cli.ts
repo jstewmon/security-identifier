@@ -10,7 +10,7 @@ interface ITestContext {
 
 const test = anyTest as TestInterface<ITestContext>;
 
-test.serial.beforeEach(t => {
+test.serial.beforeEach((t) => {
   t.context.consoleLog = sinon.stub(console, 'log').returns();
   t.context.consoleError = sinon.stub(console, 'error').returns();
   t.context.processExit = sinon.stub(process, 'exit').callsFake((() => {
@@ -18,7 +18,7 @@ test.serial.beforeEach(t => {
   }) as () => never);
 });
 
-test.serial.afterEach.always(t => {
+test.serial.afterEach.always(() => {
   sinon.restore();
 });
 
@@ -32,7 +32,7 @@ function testHelp(t: ExecutionContext<ITestContext>, flag: string) {
 test.serial('--help shows usage', testHelp, '--help');
 test.serial('-h shows usage', testHelp, '-h');
 
-test.serial('converts sid string to hex', t => {
+test.serial('converts sid string to hex', (t) => {
   cli.main(['S-1-5-32-544']);
   sinon.assert.calledWithExactly(
     t.context.consoleLog,
@@ -41,19 +41,19 @@ test.serial('converts sid string to hex', t => {
   t.pass();
 });
 
-test.serial('converts hex to sid string', t => {
+test.serial('converts hex to sid string', (t) => {
   cli.main(['01020000000000052000000020020000']);
   sinon.assert.calledWithExactly(t.context.consoleLog, 'S-1-5-32-544');
   t.pass();
 });
 
-test.serial('converts hex with spaces to sid string', t => {
+test.serial('converts hex with spaces to sid string', (t) => {
   cli.main(['01020000 00000005 20000000 20020000']);
   sinon.assert.calledWithExactly(t.context.consoleLog, 'S-1-5-32-544');
   t.pass();
 });
 
-test.serial('shows usage and exits non-zero without args', t => {
+test.serial('shows usage and exits non-zero without args', (t) => {
   cli.main([]);
   sinon.assert.calledWithExactly(
     t.context.consoleError.firstCall,
@@ -67,7 +67,7 @@ test.serial('shows usage and exits non-zero without args', t => {
   t.pass();
 });
 
-test.serial('exits non-zero on conversion error', t => {
+test.serial('exits non-zero on conversion error', (t) => {
   cli.main(['foo']);
   sinon.assert.calledWithMatch(
     t.context.consoleError,
@@ -75,12 +75,12 @@ test.serial('exits non-zero on conversion error', t => {
   );
   sinon.assert.calledWithMatch(
     t.context.processExit,
-    sinon.match(code => code > 0),
+    sinon.match((code) => code > 0),
   );
   t.pass();
 });
 
-test.serial('usage exit code', t => {
+test.serial('usage exit code', (t) => {
   const exitCode = 123;
   cli.usage(exitCode);
   sinon.assert.calledWithMatch(t.context.consoleError, /^Usage:/);

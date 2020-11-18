@@ -2,7 +2,7 @@ import { sidBufferToString, sidStringToBuffer } from './index';
 
 /* tslint:disable:no-console */
 
-export function usage(exitCode = 0) {
+export function usage(exitCode = 0): never {
   console[exitCode ? 'error' : 'log'](`Usage:
     sid <sid-string ...>
     sid -h | --help
@@ -19,17 +19,13 @@ export function main(args: string[]): void {
     console.error(`Missing argument: 'sid-string'`);
     usage(1);
   }
-  if (args.find(arg => ['-h', '--help'].includes(arg))) {
+  if (args.find((arg) => ['-h', '--help'].includes(arg))) {
     usage();
   }
   for (const input of args) {
     try {
       if (input.startsWith('S')) {
-        console.log(
-          sidStringToBuffer(input)
-            .toString('hex')
-            .toUpperCase(),
-        );
+        console.log(sidStringToBuffer(input).toString('hex').toUpperCase());
       } else {
         console.log(
           sidBufferToString(Buffer.from(input.replace(/\s/g, ''), 'hex')),
