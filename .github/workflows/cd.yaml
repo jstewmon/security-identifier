@@ -1,9 +1,12 @@
 name: cd
 on:
   workflow_run:
-    workflows: [ci]
-    branches: [$default-branch]
-    types: [completed]
+    workflows:
+      - ci
+    branches:
+      - master
+    types:
+      - completed
 
 jobs:
   release:
