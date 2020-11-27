@@ -63,8 +63,7 @@
     "prettier": "prettier '**/*.{json,ts,yaml,md}'",
     "format": "npm run eslint -- --fix && npm run prettier -- --write",
     "pretest": "npm run lint",
-    "test": "nyc ava",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc --reporter=lcov --reporter=text ava",
     "commit": "git-cz"
   },
   "devDependencies": {
